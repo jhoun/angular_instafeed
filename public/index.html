@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular - Instafeed</title>
+  <link rel="stylesheet" href="./css/styles.css" type="text/css">
+</head>
+<body>
+  <h1>Angular - Instafeed</h1>
+    <div ng-controller="myController">
+      <div class="bar">
+        <a>
+          <a ng-click="toggleList()" class="list-icon"></a>
+          <a ng-click="toggleGrid()" class="grid-icon"></a>
+        </a>
+      </div>
+      <div class="postsContainer" ng-repeat="post in myPosts">
+        <div class="listPosts"><img ng-src="{{post.images.low_resolution.url}}" ng-show="visible"/></div>
+        <div class="gridPosts" ng-if="$even">
+          <div class="left"><img ng-src="{{post.images.standard_resolution.url}}" ng-show="notVisible"/>{{post[$index]}}</div>
+          <div class="right"><img ng-src="{{post.images.standard_resolution.url}}" " ng-show="notVisible"/>{{post[$index + 1]}}</div>
+        </div>
+      </div>
+    </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+      <script src="./js/myApp.js"></script>
+      <script src="./js/controller.js"></script>
+      <script src="./js/providers.js"></script>
+</body>
+</body>
+</html>
+
